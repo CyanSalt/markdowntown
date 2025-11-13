@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.2](https://github.com/CyanSalt/markdowntown/compare/v0.1.1...v0.1.2) (2025-11-13)
+
+### Bug Fixes
+
+* add more functions ([0c98453](https://github.com/CyanSalt/markdowntown/commit/0c9845319952fce0f01d6af8a7f88eb4ef2fec28))
+
 ## [0.1.1](https://github.com/CyanSalt/markdowntown/compare/v0.1.0...v0.1.1) (2025-11-13)
 
 ### Bug Fixes

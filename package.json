@@ -1,6 +1,6 @@
 {
   "name": "markdowntown",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Recognized markdown syntax tool",
   "type": "module",
   "main": "./dist/index.mjs",
