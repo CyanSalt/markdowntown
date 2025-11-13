@@ -1,0 +1,50 @@
+{
+  "name": "markdowntown",
+  "version": "0.1.0-0",
+  "description": "Recognized markdown syntax tool",
+  "main": "dist/index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "lint": "eslint --fix './**/*.{js,mjs,ts}'",
+    "prepack": "rm -rf dist && tsc",
+    "release": "release-it"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CyanSalt/markdowntown.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CyanSalt/markdowntown/issues"
+  },
+  "homepage": "https://github.com/CyanSalt/markdowntown#readme",
+  "keywords": [
+    "markdown",
+    "mdast",
+    "micromark",
+    "remark"
+  ],
+  "author": "CyanSalt",
+  "license": "ISC",
+  "devDependencies": {
+    "@cyansalt/eslint-config": "^4.5.0",
+    "@cyansalt/tsconfig": "^2.2.1",
+    "eslint": "^9.39.1",
+    "typescript": "^5.9.3",
+    "unbuild": "^3.6.1"
+  },
+  "dependencies": {
+    "@types/mdast": "^4.0.4",
+    "mdast-util-definition-list": "^2.0.0",
+    "mdast-util-from-markdown": "^2.0.2",
+    "mdast-util-gfm": "^3.1.0",
+    "mdast-util-math": "^3.0.0",
+    "mdast-util-to-markdown": "^2.1.2",
+    "micromark-extension-definition-list": "^2.0.1",
+    "micromark-extension-gfm": "^3.0.0",
+    "micromark-extension-math": "^3.1.0",
+    "micromark-util-combine-extensions": "^2.0.1",
+    "micromark-util-types": "^2.0.2"
+  }
+}
