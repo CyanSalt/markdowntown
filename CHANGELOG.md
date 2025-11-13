@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.3](https://github.com/CyanSalt/markdowntown/compare/v0.1.2...v0.1.3) (2025-11-13)
+
+### Bug Fixes
+
+* add options and rename functions ([3d313b4](https://github.com/CyanSalt/markdowntown/commit/3d313b4681daab368e10ebcdadcbdf2d759a3210))
+
 ## [0.1.2](https://github.com/CyanSalt/markdowntown/compare/v0.1.1...v0.1.2) (2025-11-13)
 
 ### Bug Fixes
