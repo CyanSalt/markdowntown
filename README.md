@@ -13,7 +13,15 @@ pnpm add markdowntown
 ## Usage
 
 ```ts
-import { mdastToText, textToMdast } from 'markdowntown'
+import {
+  textToMdast,
+  mdastToText,
+  mdastToHast,
+  textToHast,
+  hastToHtml,
+  mdastToHtml,
+  textToHtml,
+} from 'markdowntown'
 
 const mdast = mdastToText('# Hi\n\nHello, world!\n') // { type: "root", "children": [...] }
 textToMdast(mdast) // "# Hi\n\nHello, world!\n"
@@ -52,6 +60,16 @@ toMarkdown(mdast, {
     }),
   ],
 })
+```
+
+```ts
+import { toHast } from 'mdast-util-to-hast'
+import { markdowntownToHast, combineHastOptions } from 'markdowntown'
+
+toHast(mdast, combineHastOptions([
+  markdowntownToHast(),
+  { /* ... */ },
+]))
 ```
 
 For plugin options, please refer to:

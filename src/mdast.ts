@@ -4,6 +4,7 @@ import type { Options as GfmOptions } from 'mdast-util-gfm'
 import { gfmFromMarkdown, gfmToMarkdown } from 'mdast-util-gfm'
 import type { ToOptions as MathOptions } from 'mdast-util-math'
 import { mathFromMarkdown, mathToMarkdown } from 'mdast-util-math'
+import type { Options as ToOptions } from 'mdast-util-to-markdown'
 
 export function markdowntownFromMarkdown(): Extension[] {
   return [
@@ -18,7 +19,7 @@ export interface MarkdowntownToMarkdownOptions {
   math?: MathOptions,
 }
 
-export function markdowntownToMarkdown(options?: MarkdowntownToMarkdownOptions) {
+export function markdowntownToMarkdown(options?: MarkdowntownToMarkdownOptions): ToOptions {
   return {
     extensions: [
       gfmToMarkdown(options?.gfm),
