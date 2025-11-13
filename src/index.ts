@@ -1,4 +1,4 @@
-export { textToMdast } from './transform'
+export { textToMdast, mdastToText } from './transform'
 export type { MarkdowntownSyntaxOptions } from './syntax'
 export { markdowntownSyntax } from './syntax'
 export type { MarkdowntownToMarkdownOptions } from './mdast'
