@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.1](https://github.com/CyanSalt/markdowntown/compare/v0.1.0...v0.1.1) (2025-11-13)
+
+### Bug Fixes
+
+* exports ([36ec9e4](https://github.com/CyanSalt/markdowntown/commit/36ec9e4a0ac45c9f561546e1cd31bc899b6671bb))
+
 ## 0.1.0 (2025-11-13)
 
 ### Features
