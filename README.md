@@ -14,20 +14,24 @@ pnpm add markdowntown
 
 ```ts
 import {
-  textToMdast,
-  mdastToText,
-  mdastToHast,
-  textToHast,
-  hastToHtml,
-  mdastToHtml,
-  textToHtml,
+  markdownToHtml,
 } from 'markdowntown'
 
-const mdast = mdastToText('# Hi\n\nHello, world!\n') // { type: "root", "children": [...] }
-textToMdast(mdast) // "# Hi\n\nHello, world!\n"
+markdownToHtml('## Hello, *world*!') // "<h2>Hello, <em>world</em>!</h2>"
 ```
 
-None of these functions support passing option parameters. Refer to the following parts for customization.
+You can also use any intermediate method to process markdown strings, mdast, or hast.
+
+```ts
+import {
+  markdownToMdast,
+  mdastToMarkdown,
+  mdastToHast,
+  markdownToHast,
+  hastToHtml,
+  mdastToHtml,
+} from 'markdowntown'
+```
 
 ### Used as plugins
 
@@ -109,3 +113,7 @@ const visitor = defineAsyncVisitor({
 
 await visitAsync(ast, visitor)
 ```
+
+## Motivation
+
+[`micromark`](https://github.com/micromark/micromark) only exposes the conversion between Markdown and HTML strings, which is not friendly to front-end frameworks. However, using `mdast-util-*` in combination is too complicated. Therefore, `markdowntown` was created.

@@ -1,4 +1,5 @@
-export { textToMdast, mdastToText, mdastToHast, textToHast, hastToHtml, mdastToHtml, textToHtml } from './transform'
+export { markdownToMdast, mdastToMarkdown, mdastToHast, markdownToHast, hastToHtml, mdastToHtml, markdownToHtml } from './transform'
+export type { MarkdownToMdastOptions, MdastToMarkdownOptions, MdastToHastOptions, MarkdownToHastOptions, HastToHtmlOptions, MdastToHtmlOptions, MarkdownToHtmlOptions } from './transform'
 export type { MarkdowntownSyntaxOptions } from './micromark'
 export { markdowntownSyntax, markdowntownHtml } from './micromark'
 export type { MarkdowntownToMarkdownOptions } from './mdast'
