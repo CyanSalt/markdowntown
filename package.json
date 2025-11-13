@@ -2,13 +2,24 @@
   "name": "markdowntown",
   "version": "0.1.0-0",
   "description": "Recognized markdown syntax tool",
-  "main": "dist/index.js",
+  "type": "module",
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.mjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "directories": {
     "test": "tests"
   },
   "scripts": {
     "lint": "eslint --fix './**/*.{js,mjs,ts}'",
-    "prepack": "rm -rf dist && tsc",
+    "prepack": "unbuild",
     "release": "release-it"
   },
   "repository": {
@@ -30,7 +41,9 @@
   "devDependencies": {
     "@cyansalt/eslint-config": "^4.5.0",
     "@cyansalt/tsconfig": "^2.2.1",
+    "@release-it/conventional-changelog": "^10.0.1",
     "eslint": "^9.39.1",
+    "release-it": "^19.0.6",
     "typescript": "^5.9.3",
     "unbuild": "^3.6.1"
   },
