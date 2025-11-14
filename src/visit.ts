@@ -1,11 +1,11 @@
-import type { Nodes } from 'mdast'
+import type * as Mdast from 'mdast'
 
-export interface Visitor<T extends Nodes = Nodes> {
-  test?: (node: Nodes) => node is T,
+export interface Visitor<T extends Mdast.Nodes = Mdast.Nodes> {
+  test?: (node: Mdast.Nodes) => node is T,
   visit: (node: T) => void,
 }
 
-export async function visit(node: Nodes, singleOrMultiple: Visitor | Visitor[]) {
+export async function visit(node: Mdast.Nodes, singleOrMultiple: Visitor | Visitor[]) {
   const visitors = Array.isArray(singleOrMultiple) ? singleOrMultiple : [singleOrMultiple]
   for (const visitor of visitors) {
     const isMatch = typeof visitor.test === 'function' ? visitor.test(node) : true
@@ -21,16 +21,16 @@ export async function visit(node: Nodes, singleOrMultiple: Visitor | Visitor[]) 
   return node
 }
 
-export function defineVisitor<T extends Nodes>(visitor: Visitor<T>) {
+export function defineVisitor<T extends Mdast.Nodes>(visitor: Visitor<T>) {
   return visitor
 }
 
-export interface AsyncVisitor<T extends Nodes = Nodes> {
-  test?: (node: Nodes) => node is T,
+export interface AsyncVisitor<T extends Mdast.Nodes = Mdast.Nodes> {
+  test?: (node: Mdast.Nodes) => node is T,
   visit: (node: T) => Promise<void>,
 }
 
-export async function visitAsync(node: Nodes, singleOrMultiple: AsyncVisitor | AsyncVisitor[]) {
+export async function visitAsync(node: Mdast.Nodes, singleOrMultiple: AsyncVisitor | AsyncVisitor[]) {
   const visitors = Array.isArray(singleOrMultiple) ? singleOrMultiple : [singleOrMultiple]
   for (const visitor of visitors) {
     const isMatch = typeof visitor.test === 'function' ? visitor.test(node) : true
@@ -46,6 +46,6 @@ export async function visitAsync(node: Nodes, singleOrMultiple: AsyncVisitor | A
   return node
 }
 
-export function defineAsyncVisitor<T extends Nodes>(visitor: AsyncVisitor<T>) {
+export function defineAsyncVisitor<T extends Mdast.Nodes>(visitor: AsyncVisitor<T>) {
   return visitor
 }

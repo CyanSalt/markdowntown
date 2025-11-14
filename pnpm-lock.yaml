@@ -35,6 +35,9 @@ importers:
       mdast-util-to-markdown:
         specifier: ^2.1.2
         version: 2.1.2
+      mdast-util-to-string:
+        specifier: ^4.0.0
+        version: 4.0.0
       micromark-extension-definition-list:
         specifier: ^2.0.1
         version: 2.0.1

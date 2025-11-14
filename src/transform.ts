@@ -1,25 +1,30 @@
-import type { Nodes as HastNodes } from 'hast'
+import type * as Hast from 'hast'
 import type { Options as ToHtmlOptions } from 'hast-util-to-html'
 import { toHtml } from 'hast-util-to-html'
-import type { Nodes, Root } from 'mdast'
+import type * as Mdast from 'mdast'
 import type { Options as FromMarkdownOptions } from 'mdast-util-from-markdown'
 import { fromMarkdown } from 'mdast-util-from-markdown'
 import type { Options as ToHastOptions } from 'mdast-util-to-hast'
 import { toHast } from 'mdast-util-to-hast'
 import type { Options as ToMarkdownOptions } from 'mdast-util-to-markdown'
 import { toMarkdown } from 'mdast-util-to-markdown'
+import { toString } from 'mdast-util-to-string'
 import { combineHastOptions, markdowntownToHast } from './hast'
 import type { MarkdowntownToMarkdownOptions } from './mdast'
 import { markdowntownFromMarkdown, markdowntownToMarkdown } from './mdast'
 import type { MarkdowntownSyntaxOptions } from './micromark'
 import { markdowntownSyntax } from './micromark'
 
+export function mdastToString(mdast: Mdast.Nodes) {
+  return toString(mdast)
+}
+
 export interface MarkdownToMdastOptions {
   mdast?: FromMarkdownOptions,
   markdowntownSyntax?: MarkdowntownSyntaxOptions,
 }
 
-export function markdownToMdast(text: string, options?: MarkdownToMdastOptions): Root {
+export function markdownToMdast(text: string, options?: MarkdownToMdastOptions): Mdast.Root {
   const mdast = fromMarkdown(text, {
     extensions: [
       markdowntownSyntax(options?.markdowntownSyntax),
@@ -38,7 +43,7 @@ export interface MdastToMarkdownOptions {
   markdowntownToMarkdown?: MarkdowntownToMarkdownOptions,
 }
 
-export function mdastToMarkdown(mdast: Nodes, options?: MdastToMarkdownOptions): string {
+export function mdastToMarkdown(mdast: Mdast.Nodes, options?: MdastToMarkdownOptions): string {
   return toMarkdown(mdast, {
     extensions: [
       markdowntownToMarkdown(options?.markdowntownToMarkdown),
@@ -51,7 +56,7 @@ export interface MdastToHastOptions {
   hast?: ToHastOptions,
 }
 
-export function mdastToHast(mdast: Nodes, options?: MdastToHastOptions): HastNodes {
+export function mdastToHast(mdast: Mdast.Nodes, options?: MdastToHastOptions): Hast.Nodes {
   return toHast(mdast, combineHastOptions([
     markdowntownToHast(),
     ...(options?.hast ? [options.hast] : []),
@@ -61,7 +66,7 @@ export function mdastToHast(mdast: Nodes, options?: MdastToHastOptions): HastNod
 export interface MarkdownToHastOptions extends MarkdownToMdastOptions, MdastToHastOptions {
 }
 
-export function markdownToHast(text: string, options?: MarkdownToHastOptions): HastNodes {
+export function markdownToHast(text: string, options?: MarkdownToHastOptions): Hast.Nodes {
   return mdastToHast(
     markdownToMdast(text, options),
     options,
@@ -72,14 +77,14 @@ export interface HastToHtmlOptions {
   html?: ToHtmlOptions,
 }
 
-export function hastToHtml(hast: HastNodes, options?: HastToHtmlOptions): string {
+export function hastToHtml(hast: Hast.Nodes, options?: HastToHtmlOptions): string {
   return toHtml(hast, options?.html)
 }
 
 export interface MdastToHtmlOptions extends MdastToHastOptions, HastToHtmlOptions {
 }
 
-export function mdastToHtml(mdast: Nodes, options?: MdastToHtmlOptions): string {
+export function mdastToHtml(mdast: Mdast.Nodes, options?: MdastToHtmlOptions): string {
   return hastToHtml(
     mdastToHast(mdast, options),
     options,
