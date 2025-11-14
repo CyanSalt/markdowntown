@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.5](https://github.com/CyanSalt/markdowntown/compare/v0.1.4...v0.1.5) (2025-11-14)
+
+### Bug Fixes
+
+* expose raw hast ([fdbcbf2](https://github.com/CyanSalt/markdowntown/commit/fdbcbf2cad3ebc3a67dfa9f92541338c8c4315c3))
+
 ## [0.1.4](https://github.com/CyanSalt/markdowntown/compare/v0.1.3...v0.1.4) (2025-11-14)
 
 ### Bug Fixes
