@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.6](https://github.com/CyanSalt/markdowntown/compare/v0.1.5...v0.1.6) (2025-11-14)
+
+### Bug Fixes
+
+* expose ecosystem types ([9fe6d44](https://github.com/CyanSalt/markdowntown/commit/9fe6d4452c47cd330a92e41a34abdc9a5f67ce92))
+
 ## [0.1.5](https://github.com/CyanSalt/markdowntown/compare/v0.1.4...v0.1.5) (2025-11-14)
 
 ### Bug Fixes
