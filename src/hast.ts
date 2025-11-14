@@ -1,5 +1,5 @@
 import { defListHastHandlers } from 'mdast-util-definition-list'
-import type { Options } from 'mdast-util-to-hast'
+import type * as ToHast from 'mdast-util-to-hast'
 
 function mergeObject<T extends object>(a: T | null | undefined, b: T | null | undefined) {
   return b === null || b === undefined ? a : (
@@ -13,8 +13,8 @@ function mergeArray<T>(a: T[] | null | undefined, b: T[] | null | undefined) {
   )
 }
 
-export function combineHastOptions(list: Options[]): Options {
-  let options: Options = {}
+export function combineHastOptions(list: ToHast.Options[]): ToHast.Options {
+  let options: ToHast.Options = {}
   for (const item of list) {
     options = {
       ...options,
@@ -27,7 +27,7 @@ export function combineHastOptions(list: Options[]): Options {
   return options
 }
 
-export function markdowntownToHast(): Options {
+export function markdowntownToHast(): ToHast.Options {
   // return combineHastOptions([
   //   { handlers: defListHastHandlers },
   // ])

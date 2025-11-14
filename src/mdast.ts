@@ -1,12 +1,12 @@
 import { defListFromMarkdown, defListToMarkdown } from 'mdast-util-definition-list'
-import type { Extension } from 'mdast-util-from-markdown'
-import type { Options as GfmOptions } from 'mdast-util-gfm'
+import type * as FromMarkdown from 'mdast-util-from-markdown'
+import type * as MdastGfm from 'mdast-util-gfm'
 import { gfmFromMarkdown, gfmToMarkdown } from 'mdast-util-gfm'
-import type { ToOptions as MathOptions } from 'mdast-util-math'
+import type * as MdastMath from 'mdast-util-math'
 import { mathFromMarkdown, mathToMarkdown } from 'mdast-util-math'
-import type { Options as ToOptions } from 'mdast-util-to-markdown'
+import type * as ToMarkdown from 'mdast-util-to-markdown'
 
-export function markdowntownFromMarkdown(): Extension[] {
+export function markdowntownFromMarkdown(): FromMarkdown.Extension[] {
   return [
     ...gfmFromMarkdown(),
     mathFromMarkdown(),
@@ -15,11 +15,11 @@ export function markdowntownFromMarkdown(): Extension[] {
 }
 
 export interface MarkdowntownToMarkdownOptions {
-  gfm?: GfmOptions,
-  math?: MathOptions,
+  gfm?: MdastGfm.Options,
+  math?: MdastMath.ToOptions,
 }
 
-export function markdowntownToMarkdown(options?: MarkdowntownToMarkdownOptions): ToOptions {
+export function markdowntownToMarkdown(options?: MarkdowntownToMarkdownOptions): ToMarkdown.Options {
   return {
     extensions: [
       gfmToMarkdown(options?.gfm),

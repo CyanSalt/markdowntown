@@ -33,6 +33,54 @@ import {
 } from 'markdowntown'
 ```
 
+### Options
+
+You can pass an object parameter as an option in the second argument of each transform function in a similar format:
+
+```ts
+markdownToHtml('## Hello, *world*!', {
+  markdowntownSyntax: { /* ... */ },
+  markdowntownToMarkdown: { /* ... */ },
+  mdast: { /* ... */ },
+  hast: { /* ... */ },
+  html: { /* ... */ },
+  // markdown: { /* ... */ },
+  // string: { /* ... */ },
+})
+```
+
+Different methods have different available option fields, depending on where the transformation is located in the process.
+
+### Import types and utilities
+
+All types in the ecosystem can be imported through the corresponding namespaces.
+
+```ts
+import {
+  Mdast, // alias to module 'mdast'
+  Hast, // alias to module 'hast'
+  Micromark, // alias to module 'micromark-util-types'
+  MdastDefList, // alias to module 'mdast-util-definition-list'
+  MdastMath, // alias to module 'mdast-util-math'
+  MicromarkGfm, // alias to module 'micromark-extension-gfm'
+  MicromarkMath, // alias to module 'micromark-extension-math'
+  ToString, // alias to module 'mdast-util-to-string'
+  FromMarkdown, // alias to module 'mdast-util-from-markdown'
+  ToMarkdown, // alias to module 'mdast-util-to-markdown'
+  ToHast, // alias to module 'mdast-util-to-hast'
+  ToHtml, // alias to module 'hast-util-to-html'
+} from 'markdowntown'
+```
+
+And some useful variables:
+
+```ts
+import {
+  defaultHastHandlers, // from module 'mdast-util-to-hast'
+  defaultMarkdownHandlers, // from module 'mdast-util-to-markdown'
+} from 'markdowntown'
+```
+
 ### Used as plugins
 
 ```ts
@@ -116,4 +164,4 @@ await visitAsync(ast, visitor)
 
 ## Motivation
 
-[`micromark`](https://github.com/micromark/micromark) only exposes the conversion between Markdown and HTML strings, which is not friendly to front-end frameworks. However, using `mdast-util-*` in combination is too complicated. Therefore, `markdowntown` was created.
+[`micromark`](https://github.com/micromark/micromark) only exposes the transformation between Markdown and HTML strings, which is not friendly to front-end frameworks. However, using `mdast-util-*` in combination is too complicated. Therefore, `markdowntown` was created.
