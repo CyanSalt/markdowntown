@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.4](https://github.com/CyanSalt/markdowntown/compare/v0.1.3...v0.1.4) (2025-11-14)
+
+### Bug Fixes
+
+* expose types and handlers ([133bb06](https://github.com/CyanSalt/markdowntown/commit/133bb061bac61b0fd3cdd4f09503d6cdb6f96c97))
+
 ## [0.1.3](https://github.com/CyanSalt/markdowntown/compare/v0.1.2...v0.1.3) (2025-11-13)
 
 ### Bug Fixes
