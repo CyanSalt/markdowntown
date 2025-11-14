@@ -10,5 +10,6 @@ export { visitAsync, defineAsyncVisitor } from './visit'
 
 export type * as Mdast from 'mdast'
 export type * as Hast from 'hast'
+export type { Raw as HastRaw, RawData as HastRawData } from 'mdast-util-to-hast'
 export { defaultHandlers as defaultHastHandlers } from 'mdast-util-to-hast'
 export { defaultHandlers as defaultMarkdownHandlers } from 'mdast-util-to-markdown'
