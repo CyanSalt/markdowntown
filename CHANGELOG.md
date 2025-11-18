@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.7](https://github.com/CyanSalt/markdowntown/compare/v0.1.6...v0.1.7) (2025-11-18)
+
+### Bug Fixes
+
+* typed visitors ([e765f3e](https://github.com/CyanSalt/markdowntown/commit/e765f3e82776574f4e467a48e3900086943b5e7a))
+
 ## [0.1.6](https://github.com/CyanSalt/markdowntown/compare/v0.1.5...v0.1.6) (2025-11-14)
 
 ### Bug Fixes
