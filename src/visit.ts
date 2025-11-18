@@ -3,23 +3,26 @@ import type * as Mdast from 'mdast'
 
 export interface Visitor<T extends object, U extends T = T> {
   test?: (node: T) => node is U,
-  visit: (node: U) => void,
+  visit: (node: U) => T | void,
 }
 
-export async function visit<T extends object, U extends T = T>(
+export function visit<T extends object, U extends T = T>(
   node: T,
   singleOrMultiple: Visitor<T, U> | Visitor<T, U>[],
-) {
+): T {
   const visitors = Array.isArray(singleOrMultiple) ? singleOrMultiple : [singleOrMultiple]
   for (const visitor of visitors) {
     const isMatch = typeof visitor.test === 'function' ? visitor.test(node) : true
     if (isMatch) {
-      visitor.visit(node as U)
+      const replacement = visitor.visit(node as U)
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+      node = replacement ?? node
     }
     if ('children' in node && Array.isArray(node.children)) {
-      for (const child of node.children) {
-        visit(child, visitors)
-      }
+      node.children = node.children.map(child => {
+        const replacement = visit(child, visitors)
+        return replacement ?? child
+      })
     }
   }
   return node
@@ -31,23 +34,26 @@ export function defineVisitor<T extends object, U extends T = T>(visitor: Visito
 
 export interface AsyncVisitor<T extends object, U extends T = T> {
   test?: (node: T) => node is U,
-  visit: (node: U) => Promise<void>,
+  visit: (node: U) => Promise<T | void>,
 }
 
 export async function visitAsync<T extends object, U extends T = T>(
   node: T,
   singleOrMultiple: AsyncVisitor<T, U> | AsyncVisitor<T, U>[],
-) {
+): Promise<T> {
   const visitors = Array.isArray(singleOrMultiple) ? singleOrMultiple : [singleOrMultiple]
   for (const visitor of visitors) {
     const isMatch = typeof visitor.test === 'function' ? visitor.test(node) : true
     if (isMatch) {
-      await visitor.visit(node as U)
+      const replacement = await visitor.visit(node as U)
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+      node = replacement ?? node
     }
     if ('children' in node && Array.isArray(node.children)) {
-      for (const child of node.children) {
-        await visitAsync(child, visitors)
-      }
+      node.children = await Promise.all(node.children.map(async child => {
+        const replacement = await visitAsync(child, visitors)
+        return replacement ?? child
+      }))
     }
   }
   return node
