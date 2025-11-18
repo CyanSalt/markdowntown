@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.8](https://github.com/CyanSalt/markdowntown/compare/v0.1.7...v0.1.8) (2025-11-18)
+
+### Bug Fixes
+
+* allow replacing nodes in visitors ([861515f](https://github.com/CyanSalt/markdowntown/commit/861515f23d23b27afc556211220dca2ea7282db7))
+
 ## [0.1.7](https://github.com/CyanSalt/markdowntown/compare/v0.1.6...v0.1.7) (2025-11-18)
 
 ### Bug Fixes
