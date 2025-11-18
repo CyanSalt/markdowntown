@@ -6,7 +6,7 @@ export type { MarkdowntownToMarkdownOptions } from './mdast'
 export { markdowntownToMarkdown, markdowntownFromMarkdown } from './mdast'
 export { markdowntownToHast, combineHastOptions } from './hast'
 export type { AsyncVisitor } from './visit'
-export { visitAsync, defineAsyncVisitor } from './visit'
+export { visit, defineVisitor, visitAsync, defineAsyncVisitor, visitMdast, defineMdastVisitor, visitMdastAsync, defineAsyncMdastVisitor, visitHast, defineHastVisitor, visitHastAsync, defineAsyncHastVisitor } from './visit'
 
 export { defaultHandlers as defaultHastHandlers } from 'mdast-util-to-hast'
 export { defaultHandlers as defaultMarkdownHandlers } from 'mdast-util-to-markdown'

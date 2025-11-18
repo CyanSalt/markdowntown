@@ -136,9 +136,9 @@ For plugin options, please refer to:
 ### Traversing the AST
 
 ```ts
-import { defineVisitor, visit } from 'markdowntown'
+import { defineMdastVisitor, visitMdast } from 'markdowntown'
 
-const visitor = defineVisitor({
+const visitor = defineMdastVisitor({
   test: node => node.type === 'text',
   visit: node => {
     node.data ??= {}
@@ -146,20 +146,20 @@ const visitor = defineVisitor({
   }
 })
 
-visit(ast, visitor)
+visitMdast(ast, visitor)
 ```
 
 ```ts
-import { defineAsyncVisitor, visitAsync } from 'markdowntown'
+import { defineAsyncMdastVisitor, visitMdastAsync } from 'markdowntown'
 
-const visitor = defineAsyncVisitor({
+const visitor = defineAsyncMdastVisitor({
   test: node => node.type === 'text',
   visit: async node => {
     node.value = await sanitize(node.value)
   }
 })
 
-await visitAsync(ast, visitor)
+await visitMdastAsync(ast, visitor)
 ```
 
 ## Motivation
