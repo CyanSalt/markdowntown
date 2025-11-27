@@ -6,7 +6,7 @@ export default config({
       languageOptions: {
         parserOptions: {
           project: [
-            './tsconfig.app.json',
+            './tsconfig.lib.json',
             './tsconfig.node.json',
           ],
         },
