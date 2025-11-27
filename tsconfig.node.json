@@ -3,9 +3,5 @@
   "include": [
     "*.config.mjs",
     "*.config.ts"
-  ],
-  "exclude": [
-    "dist",
-    "node_modules"
   ]
 }

@@ -15,8 +15,8 @@ export function visit<T extends object, U extends T = T>(
     const isMatch = typeof visitor.test === 'function' ? visitor.test(node) : true
     if (isMatch) {
       const replacement = visitor.visit(node as U)
-      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-      node = replacement ?? node
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition, @typescript-eslint/no-unnecessary-type-assertion
+      node = (replacement ?? node) as T
     }
     if ('children' in node && Array.isArray(node.children)) {
       node.children = node.children.map(child => {
@@ -46,8 +46,8 @@ export async function visitAsync<T extends object, U extends T = T>(
     const isMatch = typeof visitor.test === 'function' ? visitor.test(node) : true
     if (isMatch) {
       const replacement = await visitor.visit(node as U)
-      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-      node = replacement ?? node
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition, @typescript-eslint/no-unnecessary-type-assertion
+      node = (replacement ?? node) as T
     }
     if ('children' in node && Array.isArray(node.children)) {
       node.children = await Promise.all(node.children.map(async child => {
