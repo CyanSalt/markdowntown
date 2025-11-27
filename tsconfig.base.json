@@ -1,8 +1,0 @@
-{
-  "extends": "@cyansalt/tsconfig/tsconfig.lib.json",
-  "compilerOptions": {
-    "composite": true,
-    "target": "esnext",
-    "module": "esnext"
-  }
-}
