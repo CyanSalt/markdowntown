@@ -43,6 +43,7 @@ markdownToHtml('## Hello, *world*!', {
   markdowntownToMarkdown: { /* ... */ },
   markdowntownRaw: false,
   mdast: { /* ... */ },
+  mdastTransform: [ /* ... */ ],
   hast: { /* ... */ },
   html: { /* ... */ },
   hastRaw: { /* ... */ },

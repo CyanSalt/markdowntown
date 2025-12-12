@@ -28,6 +28,7 @@ export function mdastToString(mdast: Mdast.Nodes, options?: MdastToStringOptions
 
 export interface MarkdownToMdastOptions {
   mdast?: FromMarkdown.Options,
+  mdastTransform?: ((node: Mdast.Nodes) => void)[],
   markdowntownSyntax?: MarkdowntownSyntaxOptions,
 }
 
@@ -42,6 +43,9 @@ export function markdownToMdast(text: string, options?: MarkdownToMdastOptions):
       ...(options?.mdast?.mdastExtensions ?? []),
     ],
   })
+  for (const transform of options?.mdastTransform ?? []) {
+    transform(mdast)
+  }
   return mdast
 }
 
