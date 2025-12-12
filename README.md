@@ -41,9 +41,11 @@ You can pass an object parameter as an option in the second argument of each tra
 markdownToHtml('## Hello, *world*!', {
   markdowntownSyntax: { /* ... */ },
   markdowntownToMarkdown: { /* ... */ },
+  markdowntownRaw: false,
   mdast: { /* ... */ },
   hast: { /* ... */ },
   html: { /* ... */ },
+  hastRaw: { /* ... */ },
   // markdown: { /* ... */ },
   // string: { /* ... */ },
 })
@@ -69,6 +71,7 @@ import {
   ToMarkdown, // alias to module 'mdast-util-to-markdown'
   ToHast, // alias to module 'mdast-util-to-hast'
   ToHtml, // alias to module 'hast-util-to-html'
+  HastRaw, // alias to module 'hast-util-raw'
 } from 'markdowntown'
 ```
 

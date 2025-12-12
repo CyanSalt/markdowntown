@@ -1,4 +1,6 @@
 import type * as Hast from 'hast'
+import type * as HastRaw from 'hast-util-raw'
+import { raw } from 'hast-util-raw'
 import type * as ToHtml from 'hast-util-to-html'
 import { toHtml } from 'hast-util-to-html'
 import type * as Mdast from 'mdast'
@@ -58,14 +60,17 @@ export function mdastToMarkdown(mdast: Mdast.Nodes, options?: MdastToMarkdownOpt
 }
 
 export interface MdastToHastOptions {
+  markdowntownRaw?: boolean,
   hast?: ToHast.Options,
+  hastRaw?: HastRaw.Options,
 }
 
 export function mdastToHast(mdast: Mdast.Nodes, options?: MdastToHastOptions): Hast.Nodes {
-  return toHast(mdast, combineHastOptions([
+  const hast = toHast(mdast, combineHastOptions([
     markdowntownToHast(),
     ...(options?.hast ? [options.hast] : []),
   ]))
+  return options?.markdowntownRaw ? raw(hast, options.hastRaw) : hast
 }
 
 export interface MarkdownToHastOptions extends MarkdownToMdastOptions, MdastToHastOptions {
