@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/CyanSalt/markdowntown/compare/v0.2.0...v0.2.1) (2025-12-12)
+
+### Bug Fixes
+
+* add heading id plugin ([2035690](https://github.com/CyanSalt/markdowntown/commit/203569072338c693f600a20b5698633f768034db))
+* add mdast plugins ([3cd5b37](https://github.com/CyanSalt/markdowntown/commit/3cd5b37c99e5aada00c0fee35d1695e45d2b064a))
+
 ## [0.2.0](https://github.com/CyanSalt/markdowntown/compare/v0.1.8...v0.2.0) (2025-12-12)
 
 ### Features
