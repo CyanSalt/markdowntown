@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.2.0](https://github.com/CyanSalt/markdowntown/compare/v0.1.8...v0.2.0) (2025-12-12)
+
+### Features
+
+* add hast-util-raw ([f49a0c0](https://github.com/CyanSalt/markdowntown/commit/f49a0c041c81b354ea0c14719b8fb1224df47b20))
+
+### Bug Fixes
+
+* fallback exports ([a520c54](https://github.com/CyanSalt/markdowntown/commit/a520c54d2ddc37d9e2335e1212977571cdc3212b))
+* runtime typings ([78d3942](https://github.com/CyanSalt/markdowntown/commit/78d3942681c26192f55b5a0e8c687695bd2ddede))
+
 ## [0.1.8](https://github.com/CyanSalt/markdowntown/compare/v0.1.7...v0.1.8) (2025-11-18)
 
 ### Bug Fixes
