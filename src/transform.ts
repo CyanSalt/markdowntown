@@ -12,6 +12,7 @@ import type * as ToMarkdown from 'mdast-util-to-markdown'
 import { toMarkdown } from 'mdast-util-to-markdown'
 import type * as ToString from 'mdast-util-to-string'
 import { toString } from 'mdast-util-to-string'
+import remarkCustomHeaderId from 'remark-custom-header-id'
 import { combineHastOptions, markdowntownToHast } from './hast'
 import type { MarkdowntownToMarkdownOptions } from './mdast'
 import { markdowntownFromMarkdown, markdowntownToMarkdown } from './mdast'
@@ -28,8 +29,9 @@ export function mdastToString(mdast: Mdast.Nodes, options?: MdastToStringOptions
 
 export interface MarkdownToMdastOptions {
   mdast?: FromMarkdown.Options,
-  mdastTransform?: ((node: Mdast.Nodes) => void)[],
+  mdastTransforms?: ((node: Mdast.Nodes) => void)[],
   markdowntownSyntax?: MarkdowntownSyntaxOptions,
+  markdowntownHeadingIds?: boolean,
 }
 
 export function markdownToMdast(text: string, options?: MarkdownToMdastOptions): Mdast.Root {
@@ -43,7 +45,11 @@ export function markdownToMdast(text: string, options?: MarkdownToMdastOptions):
       ...(options?.mdast?.mdastExtensions ?? []),
     ],
   })
-  for (const transform of options?.mdastTransform ?? []) {
+  const transforms = [
+    ...(options?.markdowntownHeadingIds !== false ? [remarkCustomHeaderId()] : []),
+    ...(options?.mdastTransforms ?? []),
+  ]
+  for (const transform of transforms) {
     transform(mdast)
   }
   return mdast

@@ -41,9 +41,10 @@ You can pass an object parameter as an option in the second argument of each tra
 markdownToHtml('## Hello, *world*!', {
   markdowntownSyntax: { /* ... */ },
   markdowntownToMarkdown: { /* ... */ },
+  markdowntownHeadingIds: true,
   markdowntownRaw: false,
   mdast: { /* ... */ },
-  mdastTransform: [ /* ... */ ],
+  mdastTransforms: [ /* ... */ ],
   hast: { /* ... */ },
   html: { /* ... */ },
   hastRaw: { /* ... */ },

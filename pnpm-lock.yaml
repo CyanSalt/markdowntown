@@ -56,6 +56,9 @@ importers:
       micromark-util-types:
         specifier: ^2.0.2
         version: 2.0.2
+      remark-custom-header-id:
+        specifier: ^1.0.0
+        version: 1.0.0
     devDependencies:
       '@cyansalt/eslint-config':
         specifier: ^4.5.0
@@ -2712,6 +2715,10 @@ packages:
     resolution: {integrity: sha512-XTCNZ2mV9wjASQmc2bcQjA+ImJiFMijbFSyQE6lDmP1Plq17acjYaoY5FmJb5Lh/Nv4UDwfRlKQMv1DvHFKf1g==}
     engines: {node: ^20.12.0 || >=22.0.0}
     hasBin: true
+
+  remark-custom-header-id@1.0.0:
+    resolution: {integrity: sha512-xs1MAgCg1HoiIfqSVV5BPydB4/sc1tT8OHDoqt8Lnf1JHPMUDVumY2Szm/P9MIxIzOT9+tu4IYJTql0vCzldoA==}
+    engines: {node: '>=18'}
 
   resolve-from@4.0.0:
     resolution: {integrity: sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g==}
@@ -6353,6 +6360,11 @@ snapshots:
       - '@types/node'
       - magicast
       - supports-color
+
+  remark-custom-header-id@1.0.0:
+    dependencies:
+      '@types/unist': 3.0.3
+      unist-util-visit: 5.0.0
 
   resolve-from@4.0.0: {}
 
